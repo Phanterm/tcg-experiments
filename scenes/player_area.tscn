@@ -1,0 +1,410 @@
+[gd_scene format=3 uid="uid://bwl5qvemy3m7t"]
+
+[ext_resource type="Script" uid="uid://d23sjn6w2ue0t" path="res://scripts/player.gd" id="1_6wiya"]
+[ext_resource type="PackedScene" uid="uid://ccc1ibjqum65w" path="res://scenes/card_slot.tscn" id="3_6wiya"]
+[ext_resource type="Script" uid="uid://c8rhlbkfpjtql" path="res://scripts/card_zone.gd" id="3_q2auh"]
+[ext_resource type="PackedScene" uid="uid://dibi74o4qjgyw" path="res://scenes/card.tscn" id="4_q2auh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 20
+
+[node name="Blue Player" type="Panel" unique_id=875604027 node_paths=PackedStringArray("zone_sandbox", "zone_playground", "zone_playpen", "zone_deck", "zone_trash", "zone_hand")]
+self_modulate = Color(0.20392157, 0.32941177, 0.5294118, 1)
+custom_minimum_size = Vector2(1280, 512)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
+script = ExtResource("1_6wiya")
+zone_sandbox = NodePath("MarginContainer/Card Zones/Sandbox Zone")
+zone_playground = NodePath("MarginContainer/Card Zones/Playground Zone")
+zone_playpen = NodePath("MarginContainer/Card Zones/Playpen Zone")
+zone_deck = NodePath("MarginContainer/Card Zones/Deck Zone")
+zone_trash = NodePath("MarginContainer/Card Zones/Trash Zone")
+zone_hand = NodePath("MarginContainer/Card Zones/Hand Zone")
+metadata/_custom_type_script = "uid://d23sjn6w2ue0t"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1116047793]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 8
+
+[node name="Card Zones" type="Control" parent="MarginContainer" unique_id=169871154]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Hand Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1305587706 node_paths=PackedStringArray("card_group")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Hand")
+zone_type = 1
+
+[node name="Hand" type="Control" parent="MarginContainer/Card Zones/Hand Zone" unique_id=555486336]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=1642527931 instance=ExtResource("3_6wiya")]
+z_index = 0
+layout_mode = 1
+offset_left = -200.0
+offset_top = 25.0
+offset_right = -72.0
+offset_bottom = 217.0
+rotation = -0.17453292
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot" unique_id=55105604 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Card Slot3" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=535326026 instance=ExtResource("3_6wiya")]
+layout_mode = 1
+offset_left = -120.0
+offset_top = 9.0
+offset_right = 8.0
+offset_bottom = 201.0
+rotation = -0.10471976
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot3" unique_id=1921605341 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Card Slot4" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=2042831986 instance=ExtResource("3_6wiya")]
+z_index = 2
+layout_mode = 1
+offset_left = -40.0
+offset_top = 1.0
+offset_right = 88.0
+offset_bottom = 193.0
+rotation = -0.034906585
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot4" unique_id=2077560875 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Card Slot5" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=857485192 instance=ExtResource("3_6wiya")]
+z_index = 3
+layout_mode = 1
+offset_left = 40.0
+offset_top = 1.0
+offset_right = 168.0
+offset_bottom = 193.0
+rotation = 0.034906585
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot5" unique_id=2052547347 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Card Slot6" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=907753736 instance=ExtResource("3_6wiya")]
+z_index = 4
+layout_mode = 1
+offset_left = 120.0
+offset_top = 9.0
+offset_right = 248.0
+offset_bottom = 201.0
+rotation = 0.10471976
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot6" unique_id=566771265 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Card Slot2" parent="MarginContainer/Card Zones/Hand Zone/Hand" unique_id=1847980325 instance=ExtResource("3_6wiya")]
+z_index = 5
+layout_mode = 1
+offset_left = 200.0
+offset_top = 25.0
+offset_right = 328.0
+offset_bottom = 217.0
+rotation = 0.17453292
+slot_type = 1
+
+[node name="Card" parent="MarginContainer/Card Zones/Hand Zone/Hand/Card Slot2" unique_id=1967503537 instance=ExtResource("4_q2auh")]
+layout_mode = 0
+debug_mode = false
+
+[node name="Playground Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1964166634 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 200.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Playground")
+zone_type = 3
+
+[node name="Playground" type="HBoxContainer" parent="MarginContainer/Card Zones/Playground Zone" unique_id=528527285]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -96.0
+offset_right = 394.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1435203746 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.4551385)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot2" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=64175069 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.80281085)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot3" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1751082608 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.42145902)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot4" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1136313707 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.42946792)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot5" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1635884939 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.7693166)
+layout_mode = 2
+slot_type = 3
+
+[node name="Playpen Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1624752923 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.6665
+offset_top = -44.00003
+offset_right = 426.6665
+offset_bottom = 148.00003
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Playpen")
+zone_type = 3
+
+[node name="Playpen" type="HBoxContainer" parent="MarginContainer/Card Zones/Playpen Zone" unique_id=2016924024]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_right = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1413828216 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.7906039)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot2" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=2003990521 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.5196839)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot3" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1283617114 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.6904148)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot4" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=694669064 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.12974863)
+layout_mode = 2
+slot_type = 3
+
+[node name="Card Slot5" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1582010655 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.5369932)
+layout_mode = 2
+slot_type = 3
+
+[node name="Sandbox Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1634165739 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 1
+anchor_left = 0.947
+anchor_top = 0.5
+anchor_right = 0.947
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -96.0
+offset_bottom = 96.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Sandbox")
+zone_type = 4
+
+[node name="Sandbox" type="GridContainer" parent="MarginContainer/Card Zones/Sandbox Zone" unique_id=22442161]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_right = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 2
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=2028745929 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.65278685)
+layout_mode = 2
+slot_type = 4
+
+[node name="Card Slot2" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=774410172 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.42300248)
+layout_mode = 2
+slot_type = 4
+
+[node name="Card Slot3" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=924740155 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.3929191)
+layout_mode = 2
+slot_type = 4
+
+[node name="Card Slot4" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=913025609 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.8239411)
+layout_mode = 2
+slot_type = 4
+
+[node name="Deck Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1062647971 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -192.0
+offset_right = 128.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Deck")
+
+[node name="Deck" type="HBoxContainer" parent="MarginContainer/Card Zones/Deck Zone" unique_id=2016607922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 61
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Deck Zone/Deck" unique_id=682717116 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.46431217)
+layout_mode = 2
+
+[node name="Trash Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=2025612580 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = -192.0
+offset_right = 268.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("3_q2auh")
+card_group = NodePath("Trash")
+zone_type = 5
+
+[node name="Trash" type="HBoxContainer" parent="MarginContainer/Card Zones/Trash Zone" unique_id=1731823631]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 61
+
+[node name="Card Slot" parent="MarginContainer/Card Zones/Trash Zone/Trash" unique_id=969497397 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0.50114167)
+layout_mode = 2
+slot_type = 5

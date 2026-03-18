@@ -1,0 +1,10 @@
+res://autoloads/GameBoard.tscn
+res://autoloads/game_board.gd
+res://scenes/card.tscn
+res://scripts/card.gd
+res://scenes/player_area.tscn
+res://scripts/card_zone.gd
+res://scripts/player.gd
+res://scripts/card_slot.gd
+res://scenes/card_slot.tscn
+res://scripts/card_creature.gd

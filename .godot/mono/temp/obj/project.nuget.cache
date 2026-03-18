@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "rTnMVVcKDPo=",
+  "success": true,
+  "projectFilePath": "/run/media/phanterm/Resource Storage/Godot/tcg-experiment/tcg_experiment.csproj",
+  "expectedPackageFiles": [
+    "/home/phanterm/.nuget/packages/godot.sourcegenerators/4.6.1/godot.sourcegenerators.4.6.1.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/godotsharp/4.6.1/godotsharp.4.6.1.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/godotsharpeditor/4.6.1/godotsharpeditor.4.6.1.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/imgui.net/1.91.6.1/imgui.net.1.91.6.1.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/home/phanterm/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://45ok330gbhrk"]
+
+[ext_resource type="Script" uid="uid://bw0o0num0km2m" path="res://scripts/game_board.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dibi74o4qjgyw" path="res://scenes/card.tscn" id="2_0xm2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.2, 0.112266675, 0.088, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+corner_detail = 20
+
+[node name="Board" type="Control" unique_id=1132050609 node_paths=PackedStringArray("selected_card")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
+selected_card = NodePath("MarginContainer/Play Area/Card")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1568959944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Play Area" type="Panel" parent="MarginContainer" unique_id=260634426]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dm0k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Play Area" unique_id=2129433546]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Card" parent="MarginContainer/Play Area" unique_id=58904468 instance=ExtResource("2_0xm2m")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 74.0
+offset_top = 70.0
+offset_right = 74.0
+offset_bottom = 70.0
+grow_horizontal = 1
+grow_vertical = 1

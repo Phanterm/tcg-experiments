@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://dibi74o4qjgyw"]
+
+[ext_resource type="Script" uid="uid://0ymhtprruldl" path="res://scripts/card.gd" id="1_rjlel"]
+[ext_resource type="Texture2D" uid="uid://ctg3ayevj8vwq" path="res://images/ozen.jpg" id="2_q5obu"]
+[ext_resource type="Script" uid="uid://0te26xriwwwq" path="res://scripts/card_data.gd" id="2_sy11y"]
+[ext_resource type="Theme" uid="uid://c056165ipwk53" path="res://resources/ui/themes/font_card_body.tres" id="3_kg30u"]
+[ext_resource type="Theme" uid="uid://cyul4uyu6svem" path="res://resources/ui/themes/font_card_title.theme" id="3_ktuci"]
+[ext_resource type="Theme" uid="uid://npllvm2n0000" path="res://resources/ui/themes/card_border.theme" id="4_6ligt"]
+[ext_resource type="Texture2D" uid="uid://c04u0nr085klk" path="res://images/bun.png" id="5_8w5pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w5pg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Resource" id="Resource_6ligt"]
+script = ExtResource("2_sy11y")
+card_name = "Ozen the GREEN"
+card_image = ExtResource("2_q5obu")
+card_text = "ozen is GREEN NOW"
+card_color = Color(0.3299594, 0.6857982, 0.50519764, 1)
+metadata/_custom_type_script = "uid://0te26xriwwwq"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.23999947, 0.51036376, 0.48587054, 1)
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kg30u"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38625076, 0.3862509, 0.38625062, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy11y"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Card" type="Panel" unique_id=55105604]
+z_index = 20
+custom_minimum_size = Vector2(128, 192)
+offset_right = 128.0
+offset_bottom = 192.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w5pg")
+script = ExtResource("1_rjlel")
+debug_mode = null
+card_data = SubResource("Resource_6ligt")
+
+[node name="Back" type="Panel" parent="." unique_id=567618940]
+z_index = 5
+clip_contents = true
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.001, 1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_6ligt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Image" type="TextureRect" parent="Back" unique_id=462708197]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8w5pg")
+expand_mode = 1
+
+[node name="Front" type="Panel" parent="." unique_id=1045071127]
+z_index = 5
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("4_6ligt")
+
+[node name="MainMargin" type="MarginContainer" parent="Front" unique_id=656332469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="Front/MainMargin" unique_id=1445090105]
+z_index = -1
+clip_contents = true
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="Front/MainMargin/Panel" unique_id=663427867]
+modulate = Color(0, 0.6427734, 0.29527953, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q5obu")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ContentMargin" type="MarginContainer" parent="Front/MainMargin" unique_id=1123973052]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Body" type="Panel" parent="Front/MainMargin/ContentMargin" unique_id=612142488]
+self_modulate = Color(0.3299594, 0.6857982, 0.50519764, 1)
+z_index = -1
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_kg30u")
+
+[node name="BodyMargin" type="MarginContainer" parent="Front/MainMargin/ContentMargin/Body" unique_id=1541703277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Front/MainMargin/ContentMargin/Body/BodyMargin" unique_id=73728480]
+layout_mode = 2
+theme = ExtResource("3_kg30u")
+text = "ozen is GREEN NOW"
+fit_content = true
+
+[node name="Title" type="Panel" parent="Front/MainMargin/ContentMargin" unique_id=1810555650]
+self_modulate = Color(0.3299594, 0.6857982, 0.50519764, 1)
+z_index = -1
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kg30u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Front/MainMargin/ContentMargin/Title" unique_id=1155705145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ktuci")
+text = "Ozen the GREEN"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highlight" type="Panel" parent="." unique_id=1146501069]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sy11y")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ccc1ibjqum65w"]
+
+[ext_resource type="Script" uid="uid://bq80680k8rhtj" path="res://scripts/card_slot.gd" id="1_mxh2e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_offset = Vector2(0, 3.7)
+
+[node name="Highlight" type="Panel" unique_id=1045071127]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+custom_minimum_size = Vector2(128, 192)
+offset_right = 128.0
+offset_bottom = 192.0
+pivot_offset = Vector2(64, 96)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+script = ExtResource("1_mxh2e")
