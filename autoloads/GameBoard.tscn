@@ -20,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pjpln")
+number_of_players = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1568959944]
 layout_mode = 1
@@ -52,25 +53,12 @@ offset_bottom = 512.0
 grow_vertical = 1
 rotation = 3.1415927
 invert = true
+max_treats = 2
+current_treats = 2
 zone_playground = NodePath("MarginContainer/Card Zones/Sandbox Zone")
 
-[node name="Card Slot" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="0" unique_id=1642527931]
-z_index = 20
-
-[node name="Card Slot3" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="1" unique_id=535326026]
-z_index = 21
-
-[node name="Card Slot4" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="2" unique_id=2042831986]
-z_index = 22
-
-[node name="Card Slot5" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="3" unique_id=857485192]
-z_index = 23
-
-[node name="Card Slot6" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="4" unique_id=907753736]
-z_index = 24
-
-[node name="Card Slot2" parent="MarginContainer/Play Area/Red Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(875604027, 555486336) index="5" unique_id=1847980325]
-z_index = 25
+[node name="Current_Max Energy" parent="MarginContainer/Play Area/Red Player/MarginContainer" parent_id_path=PackedInt32Array(875604027, 1116047793) index="1" unique_id=766100540]
+text = "Treats: 2/2"
 
 [node name="Blue Player" parent="MarginContainer/Play Area" unique_id=1738483302 node_paths=PackedStringArray("zone_playground") instance=ExtResource("2_wuod4")]
 layout_mode = 1
@@ -83,6 +71,8 @@ offset_top = -512.0
 offset_right = 640.0
 offset_bottom = 0.0
 grow_vertical = 0
+max_treats = 2
+current_treats = 2
 zone_playground = NodePath("MarginContainer/Card Zones/Sandbox Zone")
 
 [node name="Drag Layer" type="Control" parent="MarginContainer/Play Area" unique_id=468920194]

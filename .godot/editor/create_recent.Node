@@ -1,3 +1,4 @@
+RichTextLabel
 VBoxContainer
 Button
 Control
@@ -10,6 +11,4 @@ GridContainer
 ColorRect
 HBoxContainer
 Label
-RichTextLabel
 TextureRect
-CardSlot

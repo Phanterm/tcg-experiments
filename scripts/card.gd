@@ -251,6 +251,7 @@ func get_data():
 		$Front/MainMargin/ContentMargin/Body/BodyMargin/RichTextLabel.text = card_data.card_text
 		$Front/MainMargin/ContentMargin/Title/RichTextLabel.text = card_data.card_name
 		$Front.self_modulate = card_data.card_border_color
+		$Front/CardCost.text = "cost: " + str(card_data.card_cost)
 	else:
 		printerr("get_data() FAIL: No CardData provided for card " + name + "!")
 

@@ -28,6 +28,13 @@ func set_invert(value):
 ## TODO: Currently does nothing.
 var current_life : int = starting_life
 
+## The starting resources for this player based on gamemode
+##
+## TODO: implement ui element to represent current amount of treats the player has
+@export var max_treats : int = 2
+@export var current_treats : int = max_treats
+
+
 @export var zone_sandbox : Control
 @export var zone_playground : Control
 @export var zone_playpen : Control
@@ -45,6 +52,11 @@ func _ready():
 			i.current_owner = self
 	_gather_signals()
 	_initialize_zones()
+	_showcase_treats()
+
+## Sets up UI text for the current and max treats a player has
+func _showcase_treats():
+	$"MarginContainer/Current_Max Energy".text = "Treats: " + str(current_treats) + "/" + str(max_treats)
 
 ## Sets up the zones for this player so they can be easily accessed.
 func _initialize_zones():

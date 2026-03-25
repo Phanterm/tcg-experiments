@@ -4,25 +4,25 @@ extends Control
 ## [Player]s, and handles other functions like previews, card dragging, and global signal handling.
 
 ## This signal emits at the beginning of the current turn.
-signal phase_begin_step
+signal phase_snack_time
 
 ## This signal emits when the Draw Phase begins, before drawing a card.
 signal phase_draw
 
-## This signal emits when the Upkeep Phase begins.
-signal phase_upkeep
+## This signal emits when the Migrate Phase begins.
+signal phase_migrate
 
 ## This signal emits when the Refresh Phase begins.
-signal phase_refresh
+## signal phase_refresh
 
-## This signal emits when the Main Phase begins.
-signal phase_main
+## This signal emits when the Action Phase begins.
+signal phase_action
 
 ## This signal emits when a Combat Phase would begin.
 signal phase_combat
 
 ## This signal emits when a Secondary Phase would begin.
-signal phase_secondary
+## signal phase_secondary
 
 ## This signal emits right before the turn would end.
 signal phase_end
@@ -32,13 +32,13 @@ signal phase_cleanup
 
 ## Phases represent the parts of a turn wherein cards may be played and other actions may be taken.
 enum Phases {
-	BeginStep,
+	SnackTime,
 	Draw,
-	Upkeep,
-	Refresh,
-	Main,
+	Migrate,
+## 	Refresh,
+	Action,
 	Combat,
-	Secondary,
+## 	Secondary,
 	End,
 	Cleanup
 }
@@ -51,6 +51,10 @@ var current_player : Player
 
 ## Switches control of [member current_player] at the start of a new turn.
 func change_turn():
+	turns_till_next_round -= 1
+	if turns_till_next_round == 0:
+		current_round += 1
+		turns_till_next_round = number_of_players
 	if !current_player:
 		current_player = player_human
 		return
@@ -62,6 +66,9 @@ func change_turn():
 
 @onready var player_human : Player = $"MarginContainer/Play Area/Blue Player"
 @onready var player_cpu : Player = $"MarginContainer/Play Area/Red Player"
+@onready var current_round : int = 0
+@export var number_of_players : int = 0
+@onready var turns_till_next_round : int = number_of_players
 
 ## The [Card] currently being dragged by the player.
 var dragged_card : Card
@@ -100,7 +107,7 @@ enum Zones {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_phase = Phases.BeginStep
+	current_phase = Phases.SnackTime
 	_set_interactable()
 	_gather_signals()
 	_initialize_round()
@@ -108,8 +115,12 @@ func _ready() -> void:
 ## Begins the match.
 func _initialize_round():
 	change_turn()
-	current_phase = Phases.BeginStep
-	phase_begin_step.emit()
+	turns_till_next_round = number_of_players
+	player_human.max_treats = 2
+	player_cpu.max_treats = 2
+	## current_round += 1
+	current_phase = Phases.SnackTime
+	phase_snack_time.emit()
 
 func _gather_signals():
 	preview_timer.timeout.connect(_update_preview)
@@ -151,6 +162,7 @@ func _process(delta: float) -> void:
 		elif current_player && current_player == player_human:
 			ImGui.Text("Current Player: Human")
 		ImGui.Text("Current Phase: " + Phases.keys()[current_phase])
+		ImGui.Text("Current Round: " + str(current_round))
 		ImGui.End()
 
 func on_card_flipped(card : Card, face_down : bool):
@@ -162,31 +174,35 @@ func on_card_flipped(card : Card, face_down : bool):
 ## Progresses the phase of the turn by changing [member current_phase] and emitting the appropriate signal for this.
 func advance_phase() -> void:
 	match current_phase:
-		Phases.BeginStep:
+		Phases.SnackTime:
 			current_phase = Phases.Draw
 			phase_draw.emit()
 		Phases.Draw:
-			current_phase = Phases.Upkeep
-			phase_upkeep.emit()
-		Phases.Upkeep:
-			current_phase = Phases.Refresh
-			phase_refresh.emit()
-		Phases.Refresh:
-			current_phase = Phases.Main
-			phase_main.emit()
-		Phases.Main:
+			current_phase = Phases.Migrate
+			phase_migrate.emit()
+		Phases.Migrate:
+			current_phase = Phases.Action
+			phase_action.emit()
+##		Phases.Refresh:
+##			current_phase = Phases.Main
+##			phase_main.emit()
+		Phases.Action:
 			current_phase = Phases.Combat
 			phase_combat.emit()
 		Phases.Combat:
-			current_phase = Phases.Secondary
-			phase_secondary.emit()
-		Phases.Secondary:
 			current_phase = Phases.End
 			phase_end.emit()
+##		Phases.Secondary:
+##			current_phase = Phases.End
+##			phase_end.emit()
 		Phases.End:
 			current_phase = Phases.Cleanup
 			phase_cleanup.emit()
 		Phases.Cleanup:
 			change_turn()
-			current_phase = Phases.BeginStep
-			phase_begin_step.emit()
+			current_phase = Phases.SnackTime
+			if (current_round % 2 == 0 && current_round != 0):
+				current_player.max_treats += 1
+			current_player.current_treats = current_player.max_treats
+			current_player._showcase_treats()
+			phase_snack_time.emit()

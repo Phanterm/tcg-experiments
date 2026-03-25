@@ -21,3 +21,6 @@ class_name CardData
 
 ## The color of the card border.
 @export var card_border_color : Color = Color.WHITE
+
+## The cost of the card.
+@export var card_cost : int
