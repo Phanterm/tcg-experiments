@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1774473034
+::res://::1774475616
 icon.svg::CompressedTexture2D::5130566729347250893::1773819773::1773819946::1::::<><><>0<>0<>a0eb6d0ab32db75d76ac42d438c45b7d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 main.tscn::PackedScene::5429790888599774834::1773819773::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1773819773::0::1::::<><><>0<>0<><>::
@@ -7,7 +7,7 @@ README.md::TextFile::-1::1773819773::0::1::::<><><>0<>0<><>::
 ::res://addons/imgui-godot/::1773819773
 imgui-godot-native.gdextension::GDExtension::4673522300471662227::1773819773::0::1::::<><><>0<>0<><>::
 plugin.cfg::TextFile::-1::1773819773::0::1::::<><><>0<>0<><>::
-::res://addons/imgui-godot/bin/::1774473031
+::res://addons/imgui-godot/bin/::1774475613
 ::res://addons/imgui-godot/bin/libimgui-godot-native.macos.debug.framework/::1773819773
 ::res://addons/imgui-godot/bin/libimgui-godot-native.macos.release.framework/::1773819773
 ::res://addons/imgui-godot/data/::1773819946
@@ -20,8 +20,8 @@ ImGuiConfig.gd::GDScript::4890213393153604003::1773819773::0::1::::ImGuiConfig<>
 ImGuiFont.gd::GDScript::2839398516232411902::1773819773::0::1::::ImGuiFont<>Resource<><>0<>0<><>::
 ImGuiPlugin.gd::GDScript::1794900513704989071::1773819773::0::1::::<>EditorPlugin<><>0<>1<><>::
 ImGuiRoot.gd::GDScript::1976145662874485950::1773819773::0::1::::<>Node<><>0<>0<><>::
-::res://autoloads/::1774472353
-GameBoard.tscn::PackedScene::2098277209014791152::1774472353::0::1::::<><><>0<>0<><>::uid://cmqwe46160qxq::::res://autoloads/game_board.gd<>uid://bwl5qvemy3m7t::::res://scenes/player_area.tscn
+::res://autoloads/::1774473051
+GameBoard.tscn::PackedScene::2098277209014791152::1774473051::0::1::::<><><>0<>0<><>::uid://cmqwe46160qxq::::res://autoloads/game_board.gd<>uid://bwl5qvemy3m7t::::res://scenes/player_area.tscn
 game_board.gd::GDScript::5649482024413869334::1774337642::0::1::::<>Control<><>0<>0<><>::
 ::res://images/::1774472352
 alienguy.jpg::CompressedTexture2D::6162744491298162434::1773652471::1773819946::1::::<><><>0<>0<>a0d2a7fadef74b24d571eb2d182afdf0<>res://.godot/imported/alienguy.jpg-6852729aacfb906b7f113a1a2980f494.ctex::
@@ -56,7 +56,7 @@ card_back_default.tres::Theme::3123851664513455967::1773819773::0::1::::<><><>0<
 card.tscn::PackedScene::7723381605428496582::1774337243::0::1::::<><><>0<>0<><>::uid://0ymhtprruldl::::res://scripts/card.gd<>uid://ctg3ayevj8vwq::::res://images/ozen.jpg<>uid://0te26xriwwwq::::res://scripts/card_data.gd<>uid://c056165ipwk53::::res://resources/ui/themes/font_card_body.tres<>uid://cyul4uyu6svem::::res://resources/ui/themes/font_card_title.theme<>uid://npllvm2n0000::::res://resources/ui/themes/card_border.theme<>uid://c04u0nr085klk::::res://images/bun.png
 card_slot.tscn::PackedScene::4918940805514345582::1773819773::0::1::::<><><>0<>0<><>::uid://bq80680k8rhtj::::res://scripts/card_slot.gd
 player_area.tscn::PackedScene::3955134591257926627::1774336092::0::1::::<><><>0<>0<><>::uid://d23sjn6w2ue0t::::res://scripts/player.gd<>uid://ccc1ibjqum65w::::res://scenes/card_slot.tscn<>uid://c8rhlbkfpjtql::::res://scripts/card_zone.gd<>uid://dibi74o4qjgyw::::res://scenes/card.tscn
-::res://scripts/::1774337189
+::res://scripts/::1774473051
 card.gd::GDScript::1805008283430413869::1774337189::0::1::::Card<>Panel<><>0<>1<><>::
 card_creature.gd::GDScript::7493853827928524054::1773819773::0::1::::CardCreature<>Panel<><>0<>0<><>::
 card_data.gd::GDScript::1794237017222783204::1774336871::0::1::::CardData<>Resource<><>0<>0<><>::
@@ -64,4 +64,4 @@ card_slot.gd::GDScript::3579141704605600579::1773819773::0::1::::CardSlot<>Contr
 card_zone.gd::GDScript::7124612360161598799::1773819773::0::1::::CardZone<>Control<><>0<>1<><>::
 deck_data.gd::GDScript::7963226864599988721::1773819773::0::1::::DeckData<>Resource<><>0<>0<><>::
 game_board.gd::GDScript::3983080084606342322::1773819773::0::1::::Board<>Control<><>0<>0<><>::
-player.gd::GDScript::9113273116163732421::1774335294::0::1::::Player<>Panel<><>0<>1<><>::
+player.gd::GDScript::9113273116163732421::1774473051::0::1::::Player<>Panel<><>0<>1<><>::

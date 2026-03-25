@@ -2,8 +2,6 @@
 extends Panel
 class_name Player
 
-## waga :3
-
 
 ## Inverts the player board. Used for displaying the opponent's board.
 @export var invert : bool = false:
