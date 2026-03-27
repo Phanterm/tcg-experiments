@@ -1,5 +1,5 @@
-res://scenes/card_slot.tscn
-res://scripts/card_slot.gd
-res://scenes/card.tscn
-res://scripts/card.gd
 res://autoloads/GameBoard.tscn
+res://scenes/player_area.tscn
+res://scripts/card.gd
+res://scenes/card.tscn
+res://scenes/card_slot.tscn
