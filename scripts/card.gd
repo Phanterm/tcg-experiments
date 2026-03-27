@@ -23,8 +23,10 @@ func set_dragging(value):
 	
 	if value:
 		if drag_tween && drag_tween.is_running(): drag_tween.custom_step(1000000)
+		GameBoard.selected_card = self
 		call_deferred("drag_start")
 	else:
+		GameBoard.selected_card = null
 		call_deferred("drag_cancel")
 
 ## Used for dragging.
@@ -38,10 +40,8 @@ var original_index : int
 
 ## When [member dragging] is set to [code]true[/code], this will record the initial position data in the event that the user cancels the drag.
 func drag_start():
-	print('start')
 	_on_mouse_exit()
 	original_parent = get_parent()
-	print("OG Parent: ", get_parent().name)
 	original_index = get_index()
 	original_position = global_position
 	original_rotation = rotation
@@ -55,7 +55,6 @@ var drag_tween : Tween
 
 ## When [member dragging] is set to [code]false[/code], this will reset the card's position based on values set in [member drag_start].
 func drag_cancel():
-	print("cancel")
 	GameBoard.clear_preview()
 	drag_tween = create_tween()
 	drag_tween.tween_property(self, "global_position", original_position, 0.2)\

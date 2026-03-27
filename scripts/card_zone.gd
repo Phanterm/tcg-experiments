@@ -93,27 +93,40 @@ func order_hand():
 	var cards = card_group.get_children()
 	var count = cards.size()
 
+	#TODO: If count > whatever value we want to be "max" for a fan, we can arrange it differently here.
 	if count == 0:
 		return
-
+	
 	var spacing = 80.0 #card_group.size.x         # total width of the fan
 	var max_angle = 10.0       # degrees
 
 	var center_index = (count - 1) / 2.0
 
-	for i in range(count):
-		var offset = i - center_index  # now centered around 0
+	if count > 8:
+		for i in range(count):
+			var offset = i - center_index
+			var card = cards[i]
+			
+			var x = offset * 48
+			
+			card.position.x = x
+			card.position.y = 0
+			card.rotation_degrees = 0
+	else:
+		
+		for i in range(count):
+			var offset = i - center_index  # now centered around 0
 
-		var card = cards[i]
+			var card = cards[i]
 
-		# Horizontal spread
-		var x = offset * spacing
+			# Horizontal spread
+			var x = offset * spacing
 
-		# Vertical curve (arc)
-		var y = pow(offset / center_index if center_index != 0 else 0, 2) * 25
+			# Vertical curve (arc)
+			var y = pow(offset / center_index if center_index != 0 else 0, 2) * 25
 
-		# Rotation
-		var angle = offset * (max_angle / center_index) if center_index != 0 else 0
+			# Rotation
+			var angle = offset * (max_angle / center_index) if center_index != 0 else 0
 
-		card.position = Vector2(x, y)
-		card.rotation_degrees = angle
+			card.position = Vector2(x, y)
+			card.rotation_degrees = angle

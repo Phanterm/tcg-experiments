@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cmqwe46160qxq" path="res://autoloads/game_board.gd" id="1_pjpln"]
 [ext_resource type="PackedScene" uid="uid://bwl5qvemy3m7t" path="res://scenes/player_area.tscn" id="2_wuod4"]
+[ext_resource type="PackedScene" uid="uid://ccc1ibjqum65w" path="res://scenes/card_slot.tscn" id="3_adv48"]
+[ext_resource type="PackedScene" uid="uid://dibi74o4qjgyw" path="res://scenes/card.tscn" id="4_utcjv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
 bg_color = Color(0.2, 0.112266675, 0.088, 1)
@@ -68,8 +70,86 @@ offset_bottom = 0.0
 grow_vertical = 0
 zone_playground = NodePath("MarginContainer/Card Zones/Sandbox Zone")
 
-[node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot" parent_id_path=PackedInt32Array(1738483302, 1642527931) index="0" unique_id=55105604]
+[node name="Card Slot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="0" unique_id=1642527931]
+z_index = 0
+offset_left = -280.0
+offset_right = -152.0
+
+[node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot" index="0" unique_id=55105604]
 debug_mode = true
+
+[node name="Card Slot3" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="1" unique_id=535326026]
+z_index = 1
+offset_left = -200.0
+offset_top = 12.755102
+offset_right = -72.0
+offset_bottom = 204.7551
+rotation = -0.12466637
+
+[node name="Card Slot4" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="2" unique_id=2042831986]
+z_index = 2
+offset_left = -120.0
+offset_top = 4.591837
+offset_right = 8.0
+offset_bottom = 196.59184
+rotation = -0.07479982
+
+[node name="Card Slot5" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="3" unique_id=857485192]
+z_index = 3
+offset_left = -40.0
+offset_top = 0.5102041
+offset_right = 88.0
+offset_bottom = 192.51021
+rotation = -0.024933275
+
+[node name="Card Slot6" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="4" unique_id=907753736]
+z_index = 4
+offset_left = 40.0
+offset_top = 0.5102041
+offset_right = 168.0
+offset_bottom = 192.51021
+rotation = 0.024933275
+
+[node name="Card Slot2" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="5" unique_id=1847980325]
+z_index = 5
+offset_left = 120.0
+offset_top = 4.591837
+offset_right = 248.0
+offset_bottom = 196.59184
+rotation = 0.07479982
+
+[node name="Card Slot10" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="6" unique_id=208491285 instance=ExtResource("3_adv48")]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 6
+layout_mode = 1
+offset_left = 200.0
+offset_top = 12.755102
+offset_right = 328.0
+offset_bottom = 204.7551
+rotation = 0.12466637
+slot_type = 1
+active = false
+
+[node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot10" unique_id=1115644705 instance=ExtResource("4_utcjv")]
+layout_mode = 0
+
+[node name="Card Slot11" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="7" unique_id=1466062412 instance=ExtResource("3_adv48")]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 7
+layout_mode = 1
+offset_left = 280.0
+offset_top = 25.0
+offset_right = 408.0
+offset_bottom = 217.0
+rotation = 0.17453292
+slot_type = 1
+active = false
+
+[node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot11" unique_id=1627328492 instance=ExtResource("4_utcjv")]
+layout_mode = 0
+
+[node name="Deck Zone" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones" parent_id_path=PackedInt32Array(1738483302, 169871154) index="4" unique_id=1062647971]
+zone_type = null
 
 [node name="Card Slot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Deck Zone/Deck" parent_id_path=PackedInt32Array(1738483302, 2016607922) index="0" unique_id=682717116]
 slot_type = 0

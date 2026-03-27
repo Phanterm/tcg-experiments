@@ -71,7 +71,7 @@ func change_turn():
 @onready var turns_till_next_round : int = number_of_players
 
 ## The [Card] currently being dragged by the player.
-var dragged_card : Card
+var selected_card : Card
 
 ## The [Card] currently being highlighted for the purposes of displaying a preview.
 var highlighted_card : Card:
@@ -164,6 +164,12 @@ func _process(delta: float) -> void:
 		ImGui.Text("Current Phase: " + Phases.keys()[current_phase])
 		ImGui.Text("Current Round: " + str(current_round))
 		ImGui.End()
+
+		if selected_card:
+			ImGui.Begin("SELECTED CARD")
+			ImGui.Text("Name: " + selected_card.card_data.card_name)
+			ImGui.Text("Card Origin: " + str(selected_card.original_parent.get_parent().name))
+			ImGui.End()
 
 func on_card_flipped(card : Card, face_down : bool):
 	if face_down:
