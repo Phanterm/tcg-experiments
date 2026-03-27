@@ -119,7 +119,7 @@ func order_hand():
 
 			var card = cards[i]
 
-			# Horizontal spread
+			# Horizontal spreadr
 			var x = offset * spacing
 
 			# Vertical curve (arc)

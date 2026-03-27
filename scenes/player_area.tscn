@@ -393,7 +393,7 @@ theme_override_constants/separation = 61
 [node name="Card Slot" parent="MarginContainer/Card Zones/Deck Zone/Deck" unique_id=682717116 instance=ExtResource("3_6wiya")]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-slot_type = null
+slot_type = 0
 active = false
 
 [node name="Trash Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=2025612580 node_paths=PackedStringArray("card_group")]
