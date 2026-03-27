@@ -21,3 +21,4 @@
 /run/media/phanterm/Resource Storage/Godot/tcg-experiment/.godot/mono/temp/obj/Debug/tcg_experiment.pdb
 /run/media/phanterm/Resource Storage/Godot/tcg-experiment/.godot/mono/temp/obj/Debug/tcg_experiment.genruntimeconfig.cache
 /run/media/phanterm/Resource Storage/Godot/tcg-experiment/.godot/mono/temp/obj/Debug/ref/tcg_experiment.dll
+/run/media/phanterm/Resource Storage/Godot/tcg-experiment/.godot/mono/temp/obj/Debug/tcg_experiment.sourcelink.json

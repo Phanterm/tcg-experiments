@@ -1,2 +1,5 @@
+res://scenes/card_slot.tscn
+res://scripts/card_slot.gd
+res://scenes/card.tscn
+res://scripts/card.gd
 res://autoloads/GameBoard.tscn
-res://scripts/player.gd

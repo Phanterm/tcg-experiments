@@ -17,14 +17,15 @@ var dragging : bool = false:
 	set = set_dragging
 
 func set_dragging(value):
+	if dragging == value: return
+
 	dragging = value
 	
 	if value:
-		print("Dragging")
-		drag_start()
+		if drag_tween && drag_tween.is_running(): drag_tween.custom_step(1000000)
+		call_deferred("drag_start")
 	else:
-		print("Not Dragging")
-		drag_cancel()
+		call_deferred("drag_cancel")
 
 ## Used for dragging.
 var original_position : Vector2
@@ -37,8 +38,10 @@ var original_index : int
 
 ## When [member dragging] is set to [code]true[/code], this will record the initial position data in the event that the user cancels the drag.
 func drag_start():
+	print('start')
 	_on_mouse_exit()
 	original_parent = get_parent()
+	print("OG Parent: ", get_parent().name)
 	original_index = get_index()
 	original_position = global_position
 	original_rotation = rotation
@@ -48,21 +51,23 @@ func drag_start():
 	GameBoard.drag_layer.add_child(self)
 	global_position = gpos
 
+var drag_tween : Tween
+
 ## When [member dragging] is set to [code]false[/code], this will reset the card's position based on values set in [member drag_start].
 func drag_cancel():
+	print("cancel")
 	GameBoard.clear_preview()
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", original_position, 0.2)\
+	drag_tween = create_tween()
+	drag_tween.tween_property(self, "global_position", original_position, 0.2)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_OUT)
 
-	await tween.finished
+	await drag_tween.finished
 
 	# Reattach to original parent
 	GameBoard.drag_layer.remove_child(self)
 	original_parent.add_child(self)
 	original_parent.move_child(self, original_index)
-	
 	global_position = get_parent().global_position
 	_on_mouse_exit()
 
@@ -209,7 +214,7 @@ func _can_select() -> bool:
 func _on_mouse_enter():
 	if dragging || !_can_select(): return
 
-	print("Mouse Enter")
+	#print("Mouse Enter")
 	GameBoard.highlighted_card = self
 	$Highlight.visible = true
 	if hover_tween && hover_tween.is_running():
@@ -221,7 +226,7 @@ func _on_mouse_exit():
 	if dragging || !_can_select(): return
 	$Highlight.visible = false
 	GameBoard.highlighted_card = null
-	print("Mouse Exit")
+	#print("Mouse Exit")
 	
 	if hover_tween && hover_tween.is_running():
 		hover_tween.kill()
@@ -229,11 +234,12 @@ func _on_mouse_exit():
 	hover_tween.tween_property(get_parent(), "position:y", 32, 0.15)
 
 func _on_gui_input(event : InputEvent):
-	if !_can_select(): return
+	if !_can_select() || dragging: return
 
 	if event is InputEventMouseButton:
 		if event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 			dragging = true
+			get_viewport().set_input_as_handled()
 
 func _input(event : InputEvent):
 	if !_can_select(): return
@@ -302,4 +308,6 @@ func _process(delta: float) -> void:
 				ImGui.Text("Card Owner: " + str(current_owner))
 			else:
 				ImGui.Text("Card Owner: ==NO OWNER==")
+		ImGui.Text("Original Parent: " + str(original_parent))
+		ImGui.Text("Current Parent: " + str(get_parent().name))
 		ImGui.End()
