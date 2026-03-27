@@ -74,6 +74,29 @@ func _can_drop_data(_at_position : Vector2, data : Variant) -> bool:
 
 func _ready():
 	active = false
+	add_to_group("Card Slot")
+	match slot_type:
+		GameBoard.Zones.Deck:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Deck])
+			print("ADDED TO DECK")
+		GameBoard.Zones.Hand:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Hand])
+			print("ADDED TO HAND")
+		GameBoard.Zones.Trash:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Trash])
+			print("ADDED TO TRASH")
+		GameBoard.Zones.Playpen:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Playpen])
+			print("ADDED TO PLAYPEN")
+		GameBoard.Zones.Playground:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Playground])
+			print("ADDED TO PLAYGROUND")
+		GameBoard.Zones.Sandbox:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Sandbox])
+			print("ADDED TO SANDBOX")
+		GameBoard.Zones.Custom:
+			add_to_group(GameBoard.Zones.keys()[GameBoard.Zones.Custom])
+			print("ADDED TO CUSTOM")
 
 ## When [member _can_drop_data] returns [code]true[/code], this function handles adding the [Card] to this slot.
 func _drop_data(_at_position : Vector2, data : Variant) -> void:

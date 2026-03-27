@@ -144,7 +144,7 @@ func clear_preview():
 func _set_interactable():
 	for i in get_children(true):
 		if i is Card || i is CardSlot || i is Button:
-			i.mouse_filter = MOUSE_FILTER_STOP
+			i.mouse_filter = MOUSE_FILTER_PASS
 			i.mouse_behavior_recursive = MOUSE_BEHAVIOR_ENABLED
 		elif i is Control:
 			i.mouse_filter = MOUSE_FILTER_IGNORE
@@ -165,11 +165,44 @@ func _process(delta: float) -> void:
 		ImGui.Text("Current Round: " + str(current_round))
 		ImGui.End()
 
+		if get_viewport().gui_is_dragging():
+			ImGui.Begin("DRAGGING")
+			ImGui.Text("DRAG DATA: " + str(get_viewport().gui_get_drag_data()))
+			ImGui.Text("GUI DRAG SUCCESSFUL: " + str(get_viewport().gui_is_drag_successful()))
+			ImGui.End()
+			
+
 		if selected_card:
 			ImGui.Begin("SELECTED CARD")
 			ImGui.Text("Name: " + selected_card.card_data.card_name)
 			ImGui.Text("Card Origin: " + str(selected_card.original_parent.get_parent().name))
 			ImGui.End()
+
+func reset_card_slots():
+	for slot in get_tree().get_nodes_in_group("Card Slot"):
+		if slot is CardSlot:
+			slot.active = false
+
+func show_valid_slots(player : Player, valid_zones : Array[GameBoard.Zones]):
+	var slots_to_activate : Array[CardSlot] = []
+	
+	for i in valid_zones:
+		print("Valid Zone: ", Zones.keys()[i])
+		print("How many slots? ", get_tree().get_nodes_in_group(Zones.keys()[i]).size())
+		slots_to_activate.append_array(get_tree().get_nodes_in_group(Zones.keys()[i]))
+	
+	for slot in slots_to_activate:
+		if slot.get_parent().owner == player:
+			print("COOL: ", slot)
+			slot.active = true
+	
+	#if player:
+		#for slot in player.get_children(true):
+			#print("CHILD: ", slot.name)
+			#if slot is CardSlot:
+				#for z in valid_zones:
+					#if slot.is_in_group(Zones.keys()[valid_zones[z]]):
+						#slot.active = true
 
 func on_card_flipped(card : Card, face_down : bool):
 	if face_down:

@@ -25,8 +25,10 @@ func set_dragging(value):
 		if drag_tween && drag_tween.is_running(): drag_tween.custom_step(1000000)
 		GameBoard.selected_card = self
 		call_deferred("drag_start")
+		GameBoard.show_valid_slots(GameBoard.player_human, [GameBoard.Zones.Playpen, GameBoard.Zones.Playground])
 	else:
 		GameBoard.selected_card = null
+		GameBoard.reset_card_slots()
 		call_deferred("drag_cancel")
 
 ## Used for dragging.
@@ -279,6 +281,7 @@ func set_card_border_color(color : Color):
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	#set_drag_preview(get_drag_preview())
+	
 	return self
 
 ## DEPRECATED: We move the card directly rather than create a preview using Godot's built-in system.
