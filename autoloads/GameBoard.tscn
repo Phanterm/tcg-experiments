@@ -71,7 +71,6 @@ grow_vertical = 0
 zone_playground = NodePath("MarginContainer/Card Zones/Sandbox Zone")
 
 [node name="Card Slot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="0" unique_id=1642527931]
-z_index = 0
 offset_left = -280.0
 offset_right = -152.0
 
@@ -79,7 +78,6 @@ offset_right = -152.0
 debug_mode = true
 
 [node name="Card Slot3" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="1" unique_id=535326026]
-z_index = 1
 offset_left = -200.0
 offset_top = 12.755102
 offset_right = -72.0
@@ -87,7 +85,6 @@ offset_bottom = 204.7551
 rotation = -0.12466637
 
 [node name="Card Slot4" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="2" unique_id=2042831986]
-z_index = 2
 offset_left = -120.0
 offset_top = 4.591837
 offset_right = 8.0
@@ -95,7 +92,6 @@ offset_bottom = 196.59184
 rotation = -0.07479982
 
 [node name="Card Slot5" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="3" unique_id=857485192]
-z_index = 3
 offset_left = -40.0
 offset_top = 0.5102041
 offset_right = 88.0
@@ -103,7 +99,6 @@ offset_bottom = 192.51021
 rotation = -0.024933275
 
 [node name="Card Slot6" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="4" unique_id=907753736]
-z_index = 4
 offset_left = 40.0
 offset_top = 0.5102041
 offset_right = 168.0
@@ -111,7 +106,6 @@ offset_bottom = 192.51021
 rotation = 0.024933275
 
 [node name="Card Slot2" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="5" unique_id=1847980325]
-z_index = 5
 offset_left = 120.0
 offset_top = 4.591837
 offset_right = 248.0
@@ -120,7 +114,7 @@ rotation = 0.07479982
 
 [node name="Card Slot10" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="6" unique_id=208491285 instance=ExtResource("3_adv48")]
 self_modulate = Color(1, 1, 1, 0)
-z_index = 6
+z_index = 26
 layout_mode = 1
 offset_left = 200.0
 offset_top = 12.755102
@@ -135,7 +129,7 @@ layout_mode = 0
 
 [node name="Card Slot11" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="7" unique_id=1466062412 instance=ExtResource("3_adv48")]
 self_modulate = Color(1, 1, 1, 0)
-z_index = 7
+z_index = 27
 layout_mode = 1
 offset_left = 280.0
 offset_top = 25.0
@@ -148,11 +142,23 @@ active = false
 [node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot11" unique_id=1627328492 instance=ExtResource("4_utcjv")]
 layout_mode = 0
 
-[node name="Deck Zone" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones" parent_id_path=PackedInt32Array(1738483302, 169871154) index="4" unique_id=1062647971]
-zone_type = null
+[node name="CardSlot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Playpen Zone/Playpen" parent_id_path=PackedInt32Array(1738483302, 2016924024) index="0" unique_id=1045071127]
+active = false
 
-[node name="Card Slot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Deck Zone/Deck" parent_id_path=PackedInt32Array(1738483302, 2016607922) index="0" unique_id=682717116]
-slot_type = 0
+[node name="CardSlot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Deck Zone/Deck" parent_id_path=PackedInt32Array(1738483302, 2016607922) index="0" unique_id=1258174251]
+active = false
+
+[node name="Selected Zone" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones" parent_id_path=PackedInt32Array(1738483302, 169871154) index="6" unique_id=1246069085]
+offset_left = -19.0
+offset_top = -6.0
+offset_right = 1253.0
+offset_bottom = 501.0
+
+[node name="CardSlot2" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Selected Zone/CenterContainer" parent_id_path=PackedInt32Array(1738483302, 1281298209) index="0" unique_id=232984291 instance=ExtResource("3_adv48")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+slot_type = 6
+active = false
 
 [node name="Drag Layer" type="Control" parent="MarginContainer/Play Area" unique_id=468920194]
 z_index = 100

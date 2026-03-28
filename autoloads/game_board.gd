@@ -99,6 +99,7 @@ enum Zones {
 	Playground,
 	Sandbox,
 	Trash,
+	Selected,
 	Custom
 }
 

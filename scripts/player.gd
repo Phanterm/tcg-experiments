@@ -42,6 +42,9 @@ var current_life : int = starting_life
 @export var zone_deck : Control
 @export var zone_trash : Control
 @export var zone_hand : Control
+@export var zone_selected : Control
+
+@export var prompt_window : Prompt
 
 ## The [DeckData] used for this player's deck.
 @export var deck : DeckData
@@ -73,6 +76,9 @@ func _initialize_zones():
 	zone_trash.player_owner = self
 	zone_hand._assign_slot_properties()
 	zone_hand.player_owner = self
+	zone_selected._assign_slot_properties()
+	zone_selected.player_owner = self
+
 
 func _gather_signals():
 	$"MarginContainer/Card Zones/Hand Zone/Hand".child_order_changed.connect(order_hand)

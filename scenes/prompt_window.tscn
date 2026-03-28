@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dgelmf02pcvgv"]
+
+[ext_resource type="Script" uid="uid://c2l100ypmwy6w" path="res://scripts/prompt_window.gd" id="1_8by2s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx5bg"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_8by2s"]
+Panel/styles/panel = SubResource("StyleBoxFlat_fx5bg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yipii"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_r5rne"]
+Panel/styles/panel = SubResource("StyleBoxFlat_yipii")
+
+[node name="Prompt Window" type="Panel" unique_id=481224773]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8by2s")
+metadata/_custom_type_script = "uid://c2l100ypmwy6w"
+
+[node name="Border" type="Panel" parent="." unique_id=1300800401]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 250.0
+theme = SubResource("Theme_8by2s")
+
+[node name="Inner Margin" type="MarginContainer" parent="Border" unique_id=1366209868]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 240.0
+
+[node name="Panel" type="Panel" parent="Border/Inner Margin" unique_id=2032899034]
+layout_mode = 2
+theme = SubResource("Theme_r5rne")
+
+[node name="TextMargin" type="MarginContainer" parent="Border/Inner Margin/Panel" unique_id=1300430600]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 173.0
+offset_bottom = 222.0
+
+[node name="PromptText" type="RichTextLabel" parent="Border/Inner Margin/Panel/TextMargin" unique_id=1355081891]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+text = "waga waga"
+fit_content = true

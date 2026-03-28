@@ -11,7 +11,7 @@ corner_radius_bottom_left = 16
 shadow_offset = Vector2(0, 3.7)
 
 [node name="Highlight" type="Panel" unique_id=1045071127]
-self_modulate = Color(1, 1, 1, 0.26622596)
+self_modulate = Color(1, 1, 1, 0)
 z_index = 1
 custom_minimum_size = Vector2(128, 192)
 offset_right = 128.0
@@ -19,4 +19,4 @@ offset_bottom = 192.0
 pivot_offset = Vector2(64, 96)
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
 script = ExtResource("1_mxh2e")
-active = true
+slot_type = null

@@ -24,3 +24,6 @@ class_name CardData
 
 ## The cost of the card.
 @export var card_cost : int
+
+## The card's type
+@export var card_type : String = "Card Type"

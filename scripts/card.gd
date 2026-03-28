@@ -112,19 +112,23 @@ func set_current_owner(value):
 ## This card's current location. Changing it emits a signal and moves the position of the card to that location.
 var card_location : GameBoard.Zones
 
+var is_selected : bool = false
+
+var can_be_played : bool = false
+
 ## Updates this card's location.
 func set_card_location(value : GameBoard.Zones):
 	if !is_node_ready(): return
-
+	
 	if card_location == value: return
-
+	
 	card_location = value
 	move_card(value)
 	card_moved.emit(self, value)
 
 ## Manually moves this card to the specified location.
 func move_card(new_location : GameBoard.Zones):
-	return
+	## return
 	var destination
 	match new_location:
 		GameBoard.Zones.Hand:
@@ -139,6 +143,16 @@ func move_card(new_location : GameBoard.Zones):
 			destination = current_owner.zone_playground
 		GameBoard.Zones.Trash:
 			destination = current_owner.zone_trash
+		GameBoard.Zones.Selected:
+			destination = current_owner.zone_selected
+			print_debug("IN SELECTED ZONE")
+			if GameBoard.current_player.current_treats >= card_data.card_cost:
+				can_be_played = true
+				GameBoard.current_player.prompt_window.set_selected_text(self)
+				print_debug("CARD CAN BE PLAYED")
+			else:
+				GameBoard.current_player.prompt_window.set_selected_text(self)
+				print_debug("CARD CANNOT BE PLAYED")
 		GameBoard.Zones.Custom:
 			destination = current_owner
 	global_position = destination.global_position
@@ -237,8 +251,14 @@ func _on_gui_input(event : InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-			dragging = true
-			get_viewport().set_input_as_handled()
+			if !is_selected:
+				reparent($"../../../../Selected Zone/CenterContainer/CardSlot")
+				set_card_location(GameBoard.Zones.Selected)
+				is_selected = true
+				print_debug("CARD IS SELECTED")
+				get_viewport().set_input_as_handled()
+			else:
+				print_debug("CARD ALREADY SELECTED")
 
 func _input(event : InputEvent):
 	if !_can_select(): return
