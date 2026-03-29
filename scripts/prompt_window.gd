@@ -23,23 +23,48 @@ func set_selected_text(selected_card : Card):
 	p_text += "Card Text: " + data.card_text 
 	$"Border/Inner Margin/Panel/TextMargin/PromptText".text = p_text
 
-@onready var play_button : Button = $"Border/Inner Margin/Panel/HBoxContainer/PlayCardButton"
-@onready var return_button : Button = $"Border/Inner Margin/Panel/HBoxContainer/ReturnButton"
+func clear_selected_text():
+	$"Border/Inner Margin/Panel/TextMargin/PromptText".text = ""
+
+@onready var play_button : Button = $HBoxContainer/PlayCardButton
+@onready var return_button : Button = $HBoxContainer/ReturnButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	play_button = $"Border/Inner Margin/Panel/HBoxContainer/PlayCardButton"
-	return_button = $"Border/Inner Margin/Panel/HBoxContainer/ReturnButton"
+	play_button = $HBoxContainer/PlayCardButton
+	return_button = $HBoxContainer/ReturnButton
+	_set_interactable()
+	play_button.pressed.connect(_on_play_card_button_pressed)
+	return_button.pressed.connect(_on_return_button_pressed)
+	print($HBoxContainer.mouse_filter)
 	pass
 
-func _on_play_card_button_pressed(selected_card : Card) -> void:
-	selected_card.play_button_pressed()
+func _on_play_card_button_pressed() -> void:
+	print_debug("play pressed")
+	if(GameBoard.current_player.has_card_selected):
+		GameBoard.current_player.selected_card.play_button_pressed()
+	else:
+		print_debug("No card selected")
 	return
 
-func _on_return_button_pressed(selected_card : Card) -> void:
-	selected_card.return_button_pressed()
+func _on_return_button_pressed() -> void:
+	print_debug("return pressed")
+	if(GameBoard.current_player.has_card_selected):
+		GameBoard.current_player.selected_card.return_button_pressed()
+	else:
+		print_debug("No card selected")
 	return
 	
+
+func _set_interactable():
+	for i in get_children(true):
+		if i is Card || i is CardSlot || i is Button || i is BoxContainer:
+			i.mouse_filter = MOUSE_FILTER_PASS
+			i.mouse_behavior_recursive = MOUSE_BEHAVIOR_ENABLED
+		#elif i is Control || i is Panel:
+		#	i.mouse_filter = MOUSE_FILTER_IGNORE
+		#	i.mouse_behavior_recursive = MOUSE_BEHAVIOR_DISABLED
+
 
 func get_play_button():
 	return play_button

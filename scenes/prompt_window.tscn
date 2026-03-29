@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dgelmf02pcvgv"]
 
 [ext_resource type="Script" uid="uid://c2l100ypmwy6w" path="res://scripts/prompt_window.gd" id="1_8by2s"]
+[ext_resource type="PackedScene" uid="uid://cp60si7by5dy0" path="res://scenes/play_card_button.tscn" id="2_r5rne"]
+[ext_resource type="PackedScene" uid="uid://dsv4ferjk64ga" path="res://scenes/return_button.tscn" id="3_kk5lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8by2s"]
 corner_radius_top_left = 20
@@ -30,8 +32,6 @@ corner_radius_bottom_left = 15
 [sub_resource type="Theme" id="Theme_r5rne"]
 Panel/styles/panel = SubResource("StyleBoxFlat_yipii")
 
-[sub_resource type="Theme" id="Theme_kk5lk"]
-
 [node name="Prompt Window" type="Panel" unique_id=481224773]
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +43,21 @@ grow_vertical = 2
 theme = SubResource("Theme_yipii")
 script = ExtResource("1_8by2s")
 metadata/_custom_type_script = "uid://c2l100ypmwy6w"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1384492655]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 254.0
+offset_right = 188.0
+offset_bottom = 285.0
+mouse_filter = 0
+alignment = 1
+
+[node name="PlayCardButton" parent="HBoxContainer" unique_id=1638835980 instance=ExtResource("2_r5rne")]
+layout_mode = 2
+
+[node name="ReturnButton" parent="HBoxContainer" unique_id=183936984 instance=ExtResource("3_kk5lk")]
+layout_mode = 2
 
 [node name="Border" type="Panel" parent="." unique_id=1300800401]
 layout_mode = 0
@@ -68,6 +83,7 @@ offset_left = 7.0
 offset_top = 8.0
 offset_right = 173.0
 offset_bottom = 188.0
+mouse_filter = 0
 
 [node name="PromptText" type="RichTextLabel" parent="Border/Inner Margin/Panel/TextMargin" unique_id=1355081891]
 layout_mode = 2
@@ -79,23 +95,3 @@ theme_override_font_sizes/italics_font_size = 10
 theme_override_font_sizes/mono_font_size = 10
 text = "waga waga"
 fit_content = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Border/Inner Margin/Panel" unique_id=1384492655]
-layout_mode = 0
-offset_top = 197.0
-offset_right = 180.0
-offset_bottom = 228.0
-mouse_filter = 0
-alignment = 1
-
-[node name="PlayCardButton" type="Button" parent="Border/Inner Margin/Panel/HBoxContainer" unique_id=1640148972]
-layout_mode = 2
-theme = SubResource("Theme_kk5lk")
-text = "Play Card"
-
-[node name="ReturnButton" type="Button" parent="Border/Inner Margin/Panel/HBoxContainer" unique_id=183636584]
-layout_mode = 2
-text = "Return"
-
-[connection signal="pressed" from="Border/Inner Margin/Panel/HBoxContainer/PlayCardButton" to="." method="_on_play_card_button_pressed"]
-[connection signal="pressed" from="Border/Inner Margin/Panel/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

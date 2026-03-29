@@ -116,6 +116,8 @@ var is_selected : bool = false
 
 var can_be_played : bool = false
 
+var current_card_slot : CardSlot
+
 ## Updates this card's location.
 func set_card_location(value : GameBoard.Zones):
 	if !is_node_ready(): return
@@ -207,7 +209,10 @@ func flip_card():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	call_deferred("_gather_button_signals")
+	current_card_slot = get_parent()
+	if current_card_slot != null:
+		print("The parent node is: ", current_card_slot.name)
+	print(current_card_slot)
 	get_data()
 	_gather_signals()
 	
@@ -224,14 +229,16 @@ func _gather_signals():
 func play_button_pressed():
 	print_debug("button pressed")
 	if(is_selected && can_be_played):
+		current_card_slot.queue_free()
+		GameBoard.current_player.prompt_window.clear_selected_text()
 		if(card_data.card_type == "Little Guy"):
 			set_card_location(GameBoard.Zones.Playpen)
 			return
 		elif(card_data.card_type == "Trick"):
-			
+			set_card_location(GameBoard.Zones.Trash)
 			return
 		else:
-			
+			set_card_location(GameBoard.Zones.Sandbox)
 			return
 		return
 	return
@@ -276,6 +283,7 @@ func _on_gui_input(event : InputEvent):
 	if event is InputEventMouseButton:
 		if event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 			if (!is_selected) && !GameBoard.current_player.has_card_selected:
+				GameBoard.current_player.selected_card = self
 				reparent($"../../../../Selected Zone/CenterContainer/CardSlot")
 				set_card_location(GameBoard.Zones.Selected)
 				is_selected = true

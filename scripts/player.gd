@@ -47,6 +47,7 @@ var current_life : int = starting_life
 @export var prompt_window : Prompt
 
 var has_card_selected : bool = false
+var selected_card : Card
 
 ## The [DeckData] used for this player's deck.
 @export var deck : DeckData

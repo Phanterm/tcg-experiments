@@ -145,9 +145,9 @@ func clear_preview():
 func _set_interactable():
 	for i in get_children(true):
 		if i is Card || i is CardSlot || i is Button:
-			i.mouse_filter = MOUSE_FILTER_STOP
+			i.mouse_filter = MOUSE_FILTER_PASS
 			i.mouse_behavior_recursive = MOUSE_BEHAVIOR_ENABLED
-		elif i is Control:
+		elif i is Control || i is Panel:
 			i.mouse_filter = MOUSE_FILTER_IGNORE
 			i.mouse_behavior_recursive = MOUSE_BEHAVIOR_DISABLED
 	for i in $Debug.get_children(true):

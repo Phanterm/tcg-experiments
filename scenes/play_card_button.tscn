@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cp60si7by5dy0"]
+
+[sub_resource type="Theme" id="Theme_kk5lk"]
+
+[node name="PlayCardButton" type="Button" unique_id=1638835980]
+mouse_filter = 1
+theme = SubResource("Theme_kk5lk")
+text = "Play Card"

@@ -1,8 +1,10 @@
-res://scenes/player_area.tscn
-res://scripts/player.gd
-res://scripts/card_data.gd
 res://scenes/prompt_window.tscn
-res://scripts/card.gd
-res://scripts/prompt_window.gd
-res://scenes/card.tscn
+res://scenes/button.tscn
 res://autoloads/GameBoard.tscn
+res://autoloads/game_board.gd
+res://scenes/button_holder.tscn
+res://scripts/card.gd
+res://scenes/card.tscn
+res://scripts/prompt_window.gd
+res://scripts/player.gd
+res://scenes/player_area.tscn
