@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c2l100ypmwy6w" path="res://scripts/prompt_window.gd" id="1_8by2s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8by2s"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_yipii"]
+Panel/styles/panel = SubResource("StyleBoxFlat_8by2s")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx5bg"]
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -21,12 +30,17 @@ corner_radius_bottom_left = 15
 [sub_resource type="Theme" id="Theme_r5rne"]
 Panel/styles/panel = SubResource("StyleBoxFlat_yipii")
 
+[sub_resource type="Theme" id="Theme_kk5lk"]
+
 [node name="Prompt Window" type="Panel" unique_id=481224773]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1720.0
+offset_bottom = -830.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_yipii")
 script = ExtResource("1_8by2s")
 metadata/_custom_type_script = "uid://c2l100ypmwy6w"
 
@@ -42,6 +56,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 190.0
 offset_bottom = 240.0
+mouse_filter = 0
 
 [node name="Panel" type="Panel" parent="Border/Inner Margin" unique_id=2032899034]
 layout_mode = 2
@@ -52,7 +67,7 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 8.0
 offset_right = 173.0
-offset_bottom = 222.0
+offset_bottom = 188.0
 
 [node name="PromptText" type="RichTextLabel" parent="Border/Inner Margin/Panel/TextMargin" unique_id=1355081891]
 layout_mode = 2
@@ -64,3 +79,23 @@ theme_override_font_sizes/italics_font_size = 10
 theme_override_font_sizes/mono_font_size = 10
 text = "waga waga"
 fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Border/Inner Margin/Panel" unique_id=1384492655]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 180.0
+offset_bottom = 228.0
+mouse_filter = 0
+alignment = 1
+
+[node name="PlayCardButton" type="Button" parent="Border/Inner Margin/Panel/HBoxContainer" unique_id=1640148972]
+layout_mode = 2
+theme = SubResource("Theme_kk5lk")
+text = "Play Card"
+
+[node name="ReturnButton" type="Button" parent="Border/Inner Margin/Panel/HBoxContainer" unique_id=183636584]
+layout_mode = 2
+text = "Return"
+
+[connection signal="pressed" from="Border/Inner Margin/Panel/HBoxContainer/PlayCardButton" to="." method="_on_play_card_button_pressed"]
+[connection signal="pressed" from="Border/Inner Margin/Panel/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,14 +1,14 @@
+HBoxContainer
+Button
+CheckButton
 Prompt
 Panel
-HBoxContainer
 CenterContainer
 Control
 RichTextLabel
 MarginContainer
 VBoxContainer
-Button
 Timer
 CollisionShape2D
 Area2D
 Node2D
-GridContainer

@@ -27,3 +27,5 @@ class_name CardData
 
 ## The card's type
 @export var card_type : String = "Card Type"
+
+var selected_from_hand : bool = true

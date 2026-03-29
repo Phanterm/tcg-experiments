@@ -355,7 +355,6 @@ theme_override_constants/separation = 61
 
 [node name="CardSlot" parent="MarginContainer/Card Zones/Deck Zone/Deck" unique_id=1258174251 instance=ExtResource("3_6wiya")]
 layout_mode = 2
-slot_type = 0
 
 [node name="Trash Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=2025612580 node_paths=PackedStringArray("card_group")]
 custom_minimum_size = Vector2(128, 192)
@@ -429,6 +428,7 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 25.0
+offset_right = 0.0
 offset_bottom = 25.0
 grow_horizontal = 1
 grow_vertical = 1

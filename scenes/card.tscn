@@ -17,7 +17,7 @@ card_name = "Ozen the GREEN"
 card_image = ExtResource("2_q5obu")
 card_text = "ozen is GREEN NOW"
 card_color = Color(0.3299594, 0.6857982, 0.50519764, 1)
-card_cost = 5
+card_cost = 2
 card_type = "Little Guy"
 metadata/_custom_type_script = "uid://0te26xriwwwq"
 

@@ -207,8 +207,10 @@ func flip_card():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	call_deferred("_gather_button_signals")
 	get_data()
 	_gather_signals()
+	
 
 func _gather_signals():
 	if !Engine.is_editor_hint():
@@ -216,6 +218,28 @@ func _gather_signals():
 	mouse_entered.connect(_on_mouse_enter)
 	mouse_exited.connect(_on_mouse_exit)
 	gui_input.connect(_on_gui_input)
+
+
+## Actions that occur when 
+func play_button_pressed():
+	print_debug("button pressed")
+	if(is_selected && can_be_played):
+		if(card_data.card_type == "Little Guy"):
+			set_card_location(GameBoard.Zones.Playpen)
+			return
+		elif(card_data.card_type == "Trick"):
+			
+			return
+		else:
+			
+			return
+		return
+	return
+
+func return_button_pressed():
+	
+	return
+
 
 ## Checks to see if this card can be selected on the current turn by the current player.
 func _can_select() -> bool:
@@ -251,10 +275,11 @@ func _on_gui_input(event : InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-			if !is_selected:
+			if (!is_selected) && !GameBoard.current_player.has_card_selected:
 				reparent($"../../../../Selected Zone/CenterContainer/CardSlot")
 				set_card_location(GameBoard.Zones.Selected)
 				is_selected = true
+				GameBoard.current_player.has_card_selected = true
 				print_debug("CARD IS SELECTED")
 				get_viewport().set_input_as_handled()
 			else:

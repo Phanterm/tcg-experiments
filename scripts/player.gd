@@ -46,6 +46,8 @@ var current_life : int = starting_life
 
 @export var prompt_window : Prompt
 
+var has_card_selected : bool = false
+
 ## The [DeckData] used for this player's deck.
 @export var deck : DeckData
 
@@ -82,6 +84,7 @@ func _initialize_zones():
 
 func _gather_signals():
 	$"MarginContainer/Card Zones/Hand Zone/Hand".child_order_changed.connect(order_hand)
+
 
 ## This function will automatically sort and arrange cards so they fan out.
 func order_hand():

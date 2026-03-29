@@ -23,11 +23,29 @@ func set_selected_text(selected_card : Card):
 	p_text += "Card Text: " + data.card_text 
 	$"Border/Inner Margin/Panel/TextMargin/PromptText".text = p_text
 
+@onready var play_button : Button = $"Border/Inner Margin/Panel/HBoxContainer/PlayCardButton"
+@onready var return_button : Button = $"Border/Inner Margin/Panel/HBoxContainer/ReturnButton"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	play_button = $"Border/Inner Margin/Panel/HBoxContainer/PlayCardButton"
+	return_button = $"Border/Inner Margin/Panel/HBoxContainer/ReturnButton"
+	pass
 
+func _on_play_card_button_pressed(selected_card : Card) -> void:
+	selected_card.play_button_pressed()
+	return
+
+func _on_return_button_pressed(selected_card : Card) -> void:
+	selected_card.return_button_pressed()
+	return
+	
+
+func get_play_button():
+	return play_button
+
+func get_return_button():
+	return return_button
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

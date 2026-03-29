@@ -113,7 +113,6 @@ offset_bottom = 196.59184
 rotation = 0.07479982
 
 [node name="Card Slot10" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="6" unique_id=208491285 instance=ExtResource("3_adv48")]
-self_modulate = Color(1, 1, 1, 0)
 z_index = 26
 layout_mode = 1
 offset_left = 200.0
@@ -122,13 +121,11 @@ offset_right = 328.0
 offset_bottom = 204.7551
 rotation = 0.12466637
 slot_type = 1
-active = false
 
 [node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot10" unique_id=1115644705 instance=ExtResource("4_utcjv")]
 layout_mode = 0
 
 [node name="Card Slot11" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand" parent_id_path=PackedInt32Array(1738483302, 555486336) index="7" unique_id=1466062412 instance=ExtResource("3_adv48")]
-self_modulate = Color(1, 1, 1, 0)
 z_index = 27
 layout_mode = 1
 offset_left = 280.0
@@ -137,16 +134,9 @@ offset_right = 408.0
 offset_bottom = 217.0
 rotation = 0.17453292
 slot_type = 1
-active = false
 
 [node name="Card" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Hand Zone/Hand/Card Slot11" unique_id=1627328492 instance=ExtResource("4_utcjv")]
 layout_mode = 0
-
-[node name="CardSlot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Playpen Zone/Playpen" parent_id_path=PackedInt32Array(1738483302, 2016924024) index="0" unique_id=1045071127]
-active = false
-
-[node name="CardSlot" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Deck Zone/Deck" parent_id_path=PackedInt32Array(1738483302, 2016607922) index="0" unique_id=1258174251]
-active = false
 
 [node name="Selected Zone" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones" parent_id_path=PackedInt32Array(1738483302, 169871154) index="6" unique_id=1246069085]
 offset_left = -19.0
@@ -155,10 +145,8 @@ offset_right = 1253.0
 offset_bottom = 501.0
 
 [node name="CardSlot2" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Selected Zone/CenterContainer" parent_id_path=PackedInt32Array(1738483302, 1281298209) index="0" unique_id=232984291 instance=ExtResource("3_adv48")]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 slot_type = 6
-active = false
 
 [node name="Drag Layer" type="Control" parent="MarginContainer/Play Area" unique_id=468920194]
 z_index = 100
