@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccc1ibjqum65w" path="res://scenes/card_slot.tscn" id="3_6wiya"]
 [ext_resource type="Script" uid="uid://c8rhlbkfpjtql" path="res://scripts/card_zone.gd" id="3_q2auh"]
 [ext_resource type="PackedScene" uid="uid://dibi74o4qjgyw" path="res://scenes/card.tscn" id="4_q2auh"]
+[ext_resource type="Script" uid="uid://bq80680k8rhtj" path="res://scripts/card_slot.gd" id="5_0tesk"]
 [ext_resource type="PackedScene" uid="uid://dgelmf02pcvgv" path="res://scenes/prompt_window.tscn" id="5_qmaxl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
@@ -13,6 +14,14 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_offset = Vector2(0, 3.7)
 
 [node name="Blue Player" type="Panel" unique_id=875604027 node_paths=PackedStringArray("zone_sandbox", "zone_playground", "zone_playpen", "zone_deck", "zone_trash", "zone_hand", "zone_selected", "prompt_window")]
 self_modulate = Color(0.20392157, 0.32941177, 0.5294118, 1)
@@ -393,15 +402,16 @@ layout_mode = 2
 slot_type = 5
 
 [node name="Selected Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1246069085 node_paths=PackedStringArray("card_group")]
+custom_minimum_size = Vector2(128, 192)
 layout_mode = 1
-anchor_left = 0.48700002
-anchor_top = 0.282
-anchor_right = 0.591
-anchor_bottom = 0.669
-offset_left = 0.015991211
-offset_top = 0.12799072
-offset_right = -0.11199951
-offset_bottom = 0.17599487
+anchor_left = 0.448
+anchor_top = 0.26200002
+anchor_right = 0.55200005
+anchor_bottom = 0.64900005
+offset_left = 0.063964844
+offset_top = 0.04798889
+offset_right = -0.064086914
+offset_bottom = 0.09597778
 script = ExtResource("3_q2auh")
 card_group = NodePath("CenterContainer")
 zone_type = 6
@@ -411,8 +421,13 @@ layout_mode = 0
 offset_right = 128.0
 offset_bottom = 192.0
 
-[node name="CardSlot" parent="MarginContainer/Card Zones/Selected Zone/CenterContainer" unique_id=68054438 instance=ExtResource("3_6wiya")]
+[node name="CardSlot" type="Panel" parent="MarginContainer/Card Zones/Selected Zone/CenterContainer" unique_id=1278902788 instance=ExtResource("3_6wiya")]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+custom_minimum_size = Vector2(128, 192)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+script = ExtResource("5_0tesk")
 slot_type = 6
 
 [node name="Current_Max Energy" type="RichTextLabel" parent="MarginContainer" unique_id=766100540]

@@ -118,6 +118,8 @@ var can_be_played : bool = false
 
 var current_card_slot : CardSlot
 
+var current_zone : GameBoard.Zones 
+
 ## Updates this card's location.
 func set_card_location(value : GameBoard.Zones):
 	if !is_node_ready(): return
@@ -135,14 +137,19 @@ func move_card(new_location : GameBoard.Zones):
 	match new_location:
 		GameBoard.Zones.Hand:
 			destination = current_owner.zone_hand
+			current_zone = GameBoard.Zones.Hand
 		GameBoard.Zones.Deck:
 			destination = current_owner.zone_deck
+			current_zone = GameBoard.Zones.Deck
 		GameBoard.Zones.Playpen:
 			destination = current_owner.zone_playpen
+			current_zone = GameBoard.Zones.Playpen
 		GameBoard.Zones.Sandbox:
 			destination = current_owner.zone_sandbox
+			current_zone = GameBoard.Zones.Sandbox
 		GameBoard.Zones.Playground:
 			destination = current_owner.zone_playground
+			current_zone = GameBoard.Zones.Playground
 		GameBoard.Zones.Trash:
 			destination = current_owner.zone_trash
 		GameBoard.Zones.Selected:
@@ -158,6 +165,7 @@ func move_card(new_location : GameBoard.Zones):
 		GameBoard.Zones.Custom:
 			destination = current_owner
 	global_position = destination.global_position
+
 
 ## The [CardData] which makes up this card's contents.
 @export var card_data : CardData
@@ -210,6 +218,10 @@ func flip_card():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_card_slot = get_parent()
+	
+	if(get_parent().get_parent().get_parent() is CardZone):
+		current_zone = get_parent().get_parent().get_parent().zone_type
+	
 	if current_card_slot != null:
 		print("The parent node is: ", current_card_slot.name)
 	print(current_card_slot)
@@ -229,7 +241,6 @@ func _gather_signals():
 func play_button_pressed():
 	print_debug("button pressed")
 	if(is_selected && can_be_played):
-		current_card_slot.queue_free()
 		GameBoard.current_player.prompt_window.clear_selected_text()
 		if(card_data.card_type == "Little Guy"):
 			set_card_location(GameBoard.Zones.Playpen)
@@ -240,11 +251,26 @@ func play_button_pressed():
 		else:
 			set_card_location(GameBoard.Zones.Sandbox)
 			return
-		return
+		is_selected = false
+		can_be_played = false
+		current_card_slot.queue_free()
+		GameBoard.current_player.has_card_selected = false
+		
+	is_selected = false
 	return
 
 func return_button_pressed():
-	
+	print_debug("button pressed")
+	if(is_selected):
+		GameBoard.current_player.prompt_window.clear_selected_text()
+		reparent(current_card_slot)
+		set_card_location(current_zone)
+		offset_left = 0
+		offset_top = 0
+		offset_right = 0
+		offset_bottom = 0
+		is_selected = false
+		GameBoard.current_player.has_card_selected = false
 	return
 
 

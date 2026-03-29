@@ -43,6 +43,7 @@ func _on_play_card_button_pressed() -> void:
 	print_debug("play pressed")
 	if(GameBoard.current_player.has_card_selected):
 		GameBoard.current_player.selected_card.play_button_pressed()
+		GameBoard.current_player.has_card_selected = false
 	else:
 		print_debug("No card selected")
 	return
@@ -51,6 +52,7 @@ func _on_return_button_pressed() -> void:
 	print_debug("return pressed")
 	if(GameBoard.current_player.has_card_selected):
 		GameBoard.current_player.selected_card.return_button_pressed()
+		GameBoard.current_player.has_card_selected = false
 	else:
 		print_debug("No card selected")
 	return

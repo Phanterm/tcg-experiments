@@ -144,10 +144,6 @@ offset_top = -6.0
 offset_right = 1253.0
 offset_bottom = 501.0
 
-[node name="CardSlot2" parent="MarginContainer/Play Area/Blue Player/MarginContainer/Card Zones/Selected Zone/CenterContainer" parent_id_path=PackedInt32Array(1738483302, 1281298209) index="0" unique_id=232984291 instance=ExtResource("3_adv48")]
-layout_mode = 2
-slot_type = 6
-
 [node name="Drag Layer" type="Control" parent="MarginContainer/Play Area" unique_id=468920194]
 z_index = 100
 anchors_preset = 0

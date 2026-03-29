@@ -50,7 +50,7 @@ offset_left = 8.0
 offset_top = 254.0
 offset_right = 188.0
 offset_bottom = 285.0
-mouse_filter = 0
+mouse_behavior_recursive = 2
 alignment = 1
 
 [node name="PlayCardButton" parent="HBoxContainer" unique_id=1638835980 instance=ExtResource("2_r5rne")]
