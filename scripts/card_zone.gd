@@ -11,6 +11,9 @@ var slot : PackedScene = preload("res://scenes/card_slot.tscn")
 ## The [Player] who owns this slot.
 var player_owner : Player
 
+## Array of card_slots for each zone
+var array_slots: Array[CardSlot] = []
+
 ## This node must point at the [Control] node that contains [CardSlot] as its immediate children.
 @export var card_group : Control
 
@@ -54,15 +57,21 @@ func _ready() -> void:
 	_gather_signals()
 	if !Engine.is_editor_hint():
 		_initialize_cards()
+		
 
 ## This function assigns ownership to all children [CardSlot] nodes to the current [Player].
 func _initialize_cards():
 	player_owner = get_parent().owner
+	var num = 0
 	for i in card_group.get_children():
 		if i is CardSlot && i.get_card() && player_owner:
 			var card = i.get_card()
 			card.original_owner = player_owner
 			card.current_owner = player_owner
+		elif i is CardSlot && player_owner && i.get_card() == null:
+			array_slots.append(i)
+			print_debug(array_slots[num].name)
+			num += 1
 
 func _gather_signals():
 	card_group.child_order_changed.connect(_assign_slot_properties)

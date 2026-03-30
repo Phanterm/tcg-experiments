@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1774823863
+::res://::1774845934
 icon.svg::CompressedTexture2D::5130566729347250893::1774594026::1774594046::1::::<><><>0<>0<>a0eb6d0ab32db75d76ac42d438c45b7d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 main.tscn::PackedScene::5429790888599774834::1774594026::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1774594026::0::1::::<><><>0<>0<><>::
@@ -7,7 +7,7 @@ README.md::TextFile::-1::1774594026::0::1::::<><><>0<>0<><>::
 ::res://addons/imgui-godot/::1774594026
 imgui-godot-native.gdextension::GDExtension::4673522300471662227::1774594026::0::1::::<><><>0<>0<><>::
 plugin.cfg::TextFile::-1::1774594026::0::1::::<><><>0<>0<><>::
-::res://addons/imgui-godot/bin/::1774823859
+::res://addons/imgui-godot/bin/::1774845930
 ::res://addons/imgui-godot/bin/libimgui-godot-native.macos.debug.framework/::1774594026
 ::res://addons/imgui-godot/bin/libimgui-godot-native.macos.release.framework/::1774594026
 ::res://addons/imgui-godot/data/::1774594046
@@ -20,8 +20,8 @@ ImGuiConfig.gd::GDScript::4890213393153604003::1774594026::0::1::::ImGuiConfig<>
 ImGuiFont.gd::GDScript::2839398516232411902::1774594026::0::1::::ImGuiFont<>Resource<><>0<>0<><>::
 ImGuiPlugin.gd::GDScript::1794900513704989071::1774594026::0::1::::<>EditorPlugin<><>0<>1<><>::
 ImGuiRoot.gd::GDScript::1976145662874485950::1774594026::0::1::::<>Node<><>0<>0<><>::
-::res://autoloads/::1774819125
-GameBoard.tscn::PackedScene::2098277209014791152::1774819125::0::1::::<><><>0<>0<><>::uid://cmqwe46160qxq::::res://autoloads/game_board.gd<>uid://bwl5qvemy3m7t::::res://scenes/player_area.tscn<>uid://ccc1ibjqum65w::::res://scenes/card_slot.tscn<>uid://dibi74o4qjgyw::::res://scenes/card.tscn
+::res://autoloads/::1774825585
+GameBoard.tscn::PackedScene::2098277209014791152::1774825585::0::1::::<><><>0<>0<><>::uid://cmqwe46160qxq::::res://autoloads/game_board.gd<>uid://bwl5qvemy3m7t::::res://scenes/player_area.tscn<>uid://ccc1ibjqum65w::::res://scenes/card_slot.tscn<>uid://dibi74o4qjgyw::::res://scenes/card.tscn
 game_board.gd::GDScript::5649482024413869334::1774819125::0::1::::<>Control<><>0<>0<><>::
 ::res://images/::1774594046
 alienguy.jpg::CompressedTexture2D::6162744491298162434::1774594026::1774594046::1::::<><><>0<>0<>a0d2a7fadef74b24d571eb2d182afdf0<>res://.godot/imported/alienguy.jpg-6852729aacfb906b7f113a1a2980f494.ctex::
@@ -53,16 +53,16 @@ font_card_body.tres::Theme::6591424123328485344::1774594026::0::1::::<><><>0<>0<
 font_card_title.theme::Theme::6499381933217023592::1774594026::0::1::::<><><>0<>0<><>::
 ::res://resources/ui/themes/card_backs/::1774594026
 card_back_default.tres::Theme::3123851664513455967::1774594026::0::1::::<><><>0<>0<><>::
-::res://scenes/::1774819125
+::res://scenes/::1774826000
 button_holder.tscn::PackedScene::9005251884611181098::1774819125::0::1::::<><><>0<>0<><>::uid://cp60si7by5dy0::::res://scenes/play_card_button.tscn<>uid://dsv4ferjk64ga::::res://scenes/return_button.tscn
-card.tscn::PackedScene::7723381605428496582::1774819125::0::1::::<><><>0<>0<><>::uid://0ymhtprruldl::::res://scripts/card.gd<>uid://ctg3ayevj8vwq::::res://images/ozen.jpg<>uid://0te26xriwwwq::::res://scripts/card_data.gd<>uid://c056165ipwk53::::res://resources/ui/themes/font_card_body.tres<>uid://cyul4uyu6svem::::res://resources/ui/themes/font_card_title.theme<>uid://npllvm2n0000::::res://resources/ui/themes/card_border.theme<>uid://c04u0nr085klk::::res://images/bun.png
+card.tscn::PackedScene::7723381605428496582::1774826000::0::1::::<><><>0<>0<><>::uid://0ymhtprruldl::::res://scripts/card.gd<>uid://ctg3ayevj8vwq::::res://images/ozen.jpg<>uid://0te26xriwwwq::::res://scripts/card_data.gd<>uid://c056165ipwk53::::res://resources/ui/themes/font_card_body.tres<>uid://cyul4uyu6svem::::res://resources/ui/themes/font_card_title.theme<>uid://npllvm2n0000::::res://resources/ui/themes/card_border.theme<>uid://c04u0nr085klk::::res://images/bun.png
 card_slot.tscn::PackedScene::4918940805514345582::1774657409::0::1::::<><><>0<>0<><>::uid://bq80680k8rhtj::::res://scripts/card_slot.gd
-player_area.tscn::PackedScene::3955134591257926627::1774819125::0::1::::<><><>0<>0<><>::uid://d23sjn6w2ue0t::::res://scripts/player.gd<>uid://ccc1ibjqum65w::::res://scenes/card_slot.tscn<>uid://c8rhlbkfpjtql::::res://scripts/card_zone.gd<>uid://dibi74o4qjgyw::::res://scenes/card.tscn<>uid://dgelmf02pcvgv::::res://scenes/prompt_window.tscn
+player_area.tscn::PackedScene::3955134591257926627::1774825489::0::1::::<><><>0<>0<><>::uid://d23sjn6w2ue0t::::res://scripts/player.gd<>uid://ccc1ibjqum65w::::res://scenes/card_slot.tscn<>uid://c8rhlbkfpjtql::::res://scripts/card_zone.gd<>uid://dibi74o4qjgyw::::res://scenes/card.tscn<>uid://bq80680k8rhtj::::res://scripts/card_slot.gd<>uid://dgelmf02pcvgv::::res://scenes/prompt_window.tscn
 play_card_button.tscn::PackedScene::5891220271141224037::1774819125::0::1::::<><><>0<>0<><>::
-prompt_window.tscn::PackedScene::7589342242854792149::1774819125::0::1::::<><><>0<>0<><>::uid://c2l100ypmwy6w::::res://scripts/prompt_window.gd<>uid://cp60si7by5dy0::::res://scenes/play_card_button.tscn<>uid://dsv4ferjk64ga::::res://scenes/return_button.tscn
+prompt_window.tscn::PackedScene::7589342242854792149::1774824034::0::1::::<><><>0<>0<><>::uid://c2l100ypmwy6w::::res://scripts/prompt_window.gd<>uid://cp60si7by5dy0::::res://scenes/play_card_button.tscn<>uid://dsv4ferjk64ga::::res://scenes/return_button.tscn
 return_button.tscn::PackedScene::8467783127937503288::1774819125::0::1::::<><><>0<>0<><>::
-::res://scripts/::1774819125
-card.gd::GDScript::1805008283430413869::1774819125::0::1::::Card<>Panel<><>0<>1<><>::
+::res://scripts/::1774825983
+card.gd::GDScript::1805008283430413869::1774825983::0::1::::Card<>Panel<><>0<>1<><>::
 card_creature.gd::GDScript::7493853827928524054::1774594026::0::1::::CardCreature<>Panel<><>0<>0<><>::
 card_data.gd::GDScript::1794237017222783204::1774819125::0::1::::CardData<>Resource<><>0<>0<><>::
 card_slot.gd::GDScript::3579141704605600579::1774594026::0::1::::CardSlot<>Control<><>0<>1<><>::
@@ -71,4 +71,4 @@ deck_data.gd::GDScript::7963226864599988721::1774594026::0::1::::DeckData<>Resou
 game_board.gd::GDScript::3983080084606342322::1774594026::0::1::::Board<>Control<><>0<>0<><>::
 player.gd::GDScript::9113273116163732421::1774819125::0::1::::Player<>Panel<><>0<>1<><>::
 prompt_text.gd::GDScript::7253639020720550234::1774657505::0::1::::<>RichTextLabel<><>0<>0<><>::
-prompt_window.gd::GDScript::6692272938424804964::1774819125::0::1::::Prompt<>Panel<><>0<>1<><>::
+prompt_window.gd::GDScript::6692272938424804964::1774825892::0::1::::Prompt<>Panel<><>0<>1<><>::

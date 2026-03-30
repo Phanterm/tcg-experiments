@@ -237,13 +237,23 @@ func _gather_signals():
 	gui_input.connect(_on_gui_input)
 
 
-## Actions that occur when 
+## Actions that occur when the play button is pressed while a card is selected
 func play_button_pressed():
 	print_debug("button pressed")
 	if(is_selected && can_be_played):
+		var has_been_reparented = false
 		GameBoard.current_player.prompt_window.clear_selected_text()
+		current_card_slot.queue_free()
 		if(card_data.card_type == "Little Guy"):
 			set_card_location(GameBoard.Zones.Playpen)
+			for i in GameBoard.current_player.zone_playpen.get_child(0).get_children():
+				if i is CardSlot && GameBoard.current_player && i.get_card() == null && !has_been_reparented:
+					print_debug(i.name)
+					reparent(i)
+					zero_offset()
+					has_been_reparented = true
+					return
+				
 			return
 		elif(card_data.card_type == "Trick"):
 			set_card_location(GameBoard.Zones.Trash)
@@ -259,20 +269,23 @@ func play_button_pressed():
 	is_selected = false
 	return
 
+## Actions that occur when the return button is pressed while a card is selected
 func return_button_pressed():
 	print_debug("button pressed")
 	if(is_selected):
 		GameBoard.current_player.prompt_window.clear_selected_text()
 		reparent(current_card_slot)
 		set_card_location(current_zone)
-		offset_left = 0
-		offset_top = 0
-		offset_right = 0
-		offset_bottom = 0
+		zero_offset()
 		is_selected = false
 		GameBoard.current_player.has_card_selected = false
 	return
 
+func zero_offset():
+	offset_left = 0
+	offset_top = 0
+	offset_right = 0
+	offset_bottom = 0
 
 ## Checks to see if this card can be selected on the current turn by the current player.
 func _can_select() -> bool:

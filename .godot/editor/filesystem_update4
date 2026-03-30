@@ -1,6 +1,4 @@
-res://scenes/prompt_window.tscn
+res://scenes/card.tscn
 res://scripts/card.gd
 res://scenes/player_area.tscn
-res://autoloads/GameBoard.tscn
-res://scenes/card.tscn
-res://scripts/prompt_window.gd
+res://scripts/card_zone.gd
