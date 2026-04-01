@@ -33,7 +33,7 @@ var current_life : int = starting_life
 ##
 ## TODO: implement ui element to represent current amount of treats the player has
 @export var max_treats : int = 2
-@export var current_treats : int = max_treats
+@onready var current_treats : int = max_treats
 
 
 @export var zone_sandbox : Control

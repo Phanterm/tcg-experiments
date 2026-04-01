@@ -236,6 +236,10 @@ func _gather_signals():
 	mouse_exited.connect(_on_mouse_exit)
 	gui_input.connect(_on_gui_input)
 
+## Reduces the treats a player has by the effects or of playing a card, also reprints out the new "current/max" treats
+func reduce_treats():
+	GameBoard.current_player.current_treats -= card_data.card_cost
+	GameBoard.current_player._showcase_treats()
 
 ## Actions that occur when the play button is pressed while a card is selected
 func play_button_pressed():
@@ -244,6 +248,7 @@ func play_button_pressed():
 		var has_been_reparented = false
 		GameBoard.current_player.prompt_window.clear_selected_text()
 		current_card_slot.queue_free()
+		reduce_treats()
 		if(card_data.card_type == "Little Guy"):
 			set_card_location(GameBoard.Zones.Playpen)
 			for i in GameBoard.current_player.zone_playpen.get_child(0).get_children():
@@ -321,7 +326,7 @@ func _on_gui_input(event : InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-			if (!is_selected) && !GameBoard.current_player.has_card_selected:
+			if (!is_selected) && !GameBoard.current_player.has_card_selected && !$"../../../../Selected Zone/CenterContainer".get_child(0) is Card:
 				GameBoard.current_player.selected_card = self
 				reparent($"../../../../Selected Zone/CenterContainer/CardSlot")
 				set_card_location(GameBoard.Zones.Selected)

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ccc1ibjqum65w" path="res://scenes/card_slot.tscn" id="3_6wiya"]
 [ext_resource type="Script" uid="uid://c8rhlbkfpjtql" path="res://scripts/card_zone.gd" id="3_q2auh"]
 [ext_resource type="PackedScene" uid="uid://dibi74o4qjgyw" path="res://scenes/card.tscn" id="4_q2auh"]
-[ext_resource type="Script" uid="uid://bq80680k8rhtj" path="res://scripts/card_slot.gd" id="5_0tesk"]
 [ext_resource type="PackedScene" uid="uid://dgelmf02pcvgv" path="res://scenes/prompt_window.tscn" id="5_qmaxl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
@@ -47,7 +46,6 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
 script = ExtResource("1_6wiya")
-current_treats = 2
 zone_sandbox = NodePath("MarginContainer/Card Zones/Sandbox Zone")
 zone_playground = NodePath("MarginContainer/Card Zones/Playground Zone")
 zone_playpen = NodePath("MarginContainer/Card Zones/Playpen Zone")
@@ -202,7 +200,6 @@ mouse_filter = 2
 script = ExtResource("3_q2auh")
 card_group = NodePath("Playpen")
 zone_type = 2
-zone_size = 5
 
 [node name="Playpen" type="HBoxContainer" parent="MarginContainer/Card Zones/Playpen Zone" unique_id=2016924024]
 layout_mode = 1
@@ -219,49 +216,29 @@ mouse_filter = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="@Panel@39648" type="Panel" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1045071127 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@39648" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1045071127 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 2
 
-[node name="@Panel@39649" type="Panel" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1429747231 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@39649" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1429747231 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 2
 
-[node name="@Panel@39650" type="Panel" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1113251559 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@39650" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1113251559 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 2
 
-[node name="@Panel@39651" type="Panel" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1992664507 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@39651" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=1992664507 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 2
 
-[node name="@Panel@39652" type="Panel" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=306520143 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@39652" parent="MarginContainer/Card Zones/Playpen Zone/Playpen" unique_id=306520143 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 2
 
 [node name="Playground Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1964166634 node_paths=PackedStringArray("card_group")]
@@ -280,7 +257,6 @@ mouse_filter = 2
 script = ExtResource("3_q2auh")
 card_group = NodePath("Playground")
 zone_type = 3
-zone_size = 5
 
 [node name="Playground" type="HBoxContainer" parent="MarginContainer/Card Zones/Playground Zone" unique_id=528527285]
 layout_mode = 1
@@ -299,49 +275,29 @@ mouse_filter = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="CardSlot" type="Panel" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1674870886 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="CardSlot" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1674870886 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 3
 
-[node name="@Panel@51820" type="Panel" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=2142109631 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@51820" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=2142109631 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 3
 
-[node name="@Panel@51821" type="Panel" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=819980380 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@51821" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=819980380 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 3
 
-[node name="@Panel@51822" type="Panel" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1771611096 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@51822" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=1771611096 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 3
 
-[node name="@Panel@51823" type="Panel" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=18482467 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@51823" parent="MarginContainer/Card Zones/Playground Zone/Playground" unique_id=18482467 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 3
 
 [node name="Sandbox Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1634165739 node_paths=PackedStringArray("card_group")]
@@ -361,7 +317,6 @@ mouse_filter = 2
 script = ExtResource("3_q2auh")
 card_group = NodePath("Sandbox")
 zone_type = 4
-zone_size = 4
 
 [node name="Sandbox" type="GridContainer" parent="MarginContainer/Card Zones/Sandbox Zone" unique_id=22442161]
 layout_mode = 1
@@ -377,40 +332,24 @@ grow_vertical = 2
 mouse_filter = 2
 columns = 2
 
-[node name="CardSlot" type="Panel" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=526145576 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="CardSlot" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=526145576 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 4
 
-[node name="@Panel@52637" type="Panel" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=155493330 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@52637" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=155493330 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 4
 
-[node name="@Panel@52638" type="Panel" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=1675153698 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@52638" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=1675153698 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 4
 
-[node name="@Panel@52639" type="Panel" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=485559999 instance=ExtResource("3_6wiya")]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 1
-custom_minimum_size = Vector2(128, 192)
+[node name="@Panel@52639" parent="MarginContainer/Card Zones/Sandbox Zone/Sandbox" unique_id=485559999 instance=ExtResource("3_6wiya")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
-script = ExtResource("5_0tesk")
 slot_type = 4
 
 [node name="Deck Zone" type="Control" parent="MarginContainer/Card Zones" unique_id=1062647971 node_paths=PackedStringArray("card_group")]
@@ -426,7 +365,6 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 script = ExtResource("3_q2auh")
 card_group = NodePath("Deck")
-zone_type = null
 
 [node name="Deck" type="HBoxContainer" parent="MarginContainer/Card Zones/Deck Zone" unique_id=2016607922]
 layout_mode = 1

@@ -1,4 +1,4 @@
-res://scenes/card.tscn
-res://scripts/card.gd
 res://scenes/player_area.tscn
-res://scripts/card_zone.gd
+res://scripts/card.gd
+res://scripts/player.gd
+res://autoloads/game_board.gd
