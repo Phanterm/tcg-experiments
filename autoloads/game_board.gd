@@ -212,4 +212,5 @@ func advance_phase() -> void:
 				current_player.max_treats += 1
 			current_player.current_treats = current_player.max_treats
 			current_player._showcase_treats()
+			current_player.move_all_to_playground()
 			phase_snack_time.emit()

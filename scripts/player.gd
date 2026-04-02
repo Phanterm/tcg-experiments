@@ -57,9 +57,11 @@ func _ready():
 		if i is Card:
 			i.original_owner = self
 			i.current_owner = self
+	
 	_gather_signals()
 	_initialize_zones()
 	_showcase_treats()
+	
 
 ## Sets up UI text for the current and max treats a player has
 func _showcase_treats():
@@ -69,6 +71,8 @@ func _showcase_treats():
 func _initialize_zones():
 	zone_sandbox._assign_slot_properties()
 	zone_sandbox.player_owner = self
+	# DO NOT REMOVE THIS REFERENCE IT WILL ASSIGN THE PLAYGROUND ZONE TO THE SANDBOX SOMEHOW IDFK :splat:
+	zone_playground = $"MarginContainer/Card Zones/Playground Zone"
 	zone_playground._assign_slot_properties()
 	zone_playground.player_owner = self
 	zone_playpen._assign_slot_properties()
@@ -81,10 +85,31 @@ func _initialize_zones():
 	zone_hand.player_owner = self
 	zone_selected._assign_slot_properties()
 	zone_selected.player_owner = self
+	
+	
 
 
 func _gather_signals():
 	$"MarginContainer/Card Zones/Hand Zone/Hand".child_order_changed.connect(order_hand)
+
+
+## Function set to move every little guy a player controls that is in their playpen to the playground
+func move_all_to_playground():
+
+	for i in zone_playpen.card_group.get_children():
+		if i is CardSlot && i.get_card():
+			var card_to_be_moved : Card = i.get_card()
+			card_to_be_moved.set_card_location(GameBoard.Zones.Playground)
+			var has_been_reparented : bool = false
+			for u in zone_playground.card_group.get_children():
+				print_debug(zone_playground.name)
+				if u is CardSlot && GameBoard.current_player && u.get_card() == null && !has_been_reparented:
+					print_debug(u.get_parent().name)
+					card_to_be_moved.reparent(u)
+					u.get_card().zero_offset()
+					has_been_reparented = true
+			
+	return
 
 
 ## This function will automatically sort and arrange cards so they fan out.
